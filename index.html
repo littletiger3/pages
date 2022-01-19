@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <META http-equiv="Cache-Control" content="no-store">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+        <title>Test Download</title>
+        <!-- <script type="text/javascript">
+            window.notifyDownProgress=function(){};window.onWindowChanged=function(){};window.onWindowHide=function(){};
+            var type = window.location.pathname.match(/\/views\/([A-Za-z-]*)\d*\.html/)[1];
+            type == 'cpd-activity' && EventJavascriptInterface && EventJavascriptInterface.stopProgress();
+        </script> -->
+
+        <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+        <script>eruda.init();</script>
+
+        <style>
+            .content {
+                display: flex;
+                flex-direction: column;
+                background-color: #efefef;
+            }
+            .btn {
+                height: 45px;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <text id="msg_txt">download test 1</text>
+            <button class="btn" onclick="start()">start</button>
+            <a href="a.png" download="fake_name.tt">下载</a>
+        </div>
+        
+    </body>
+    <script>
+
+        var msg_txt = document.getElementById('msg_txt')
+
+        window.onload = function() {
+            console.log('onload complete')
+            // testDownload()
+        }
+
+        function start() {
+            testJsbridge()
+        }
+
+        function downloadByIframe() {
+            var src = 'http://imtt.dd.qq.com/16891/26747DD8B125A8479AD0C9D22CA47BC9.apk?fsname=com.snda.wifilocating_4.2.91_3211.apk&csr=1bbd';
+            var iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = "javascript: '<script>location.href=\"" + src + "\"<\/script>'";
+            document.getElementsByTagName('body')[0].appendChild(iframe);
+        }
+        
+        function downloadByHref() {
+            var href = "http://imtt.dd.qq.com/16891/26747DD8B125A8479AD0C9D22CA47BC9.apk?fsname=com.snda.wifilocating_4.2.91_3211.apk&csr=1bbd"
+            href = "PDD.apk"
+            href = "https://dl.pddpic.com/android_dev/2020-06-24/51ec64e9deab5ec3f3ac0c9d2498e36c.apk"
+            window.location.href = href
+        }
+
+        function testJsbridge() {
+            var obj = window.JavascriptAction
+            msg_txt.innerText = obj
+        }
+
+        function clickButton() {
+            msg = "hello world"
+            msg_txt.innerText = msg
+        }
+
+    </script>
+</html>
