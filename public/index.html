@@ -28,7 +28,7 @@
     </head>
     <body>
         <div class="content">
-            <text id="msg_txt">download test</text>
+            <text id="msg_txt">download test 1</text>
             <button class="btn" onclick="testDownload()">start</button>
             <a href="a.png" download="fake_name.tt">下载</a>
         </div>
@@ -44,7 +44,7 @@
         }
 
         function testDownload() {
-            downloadByIframe()
+            downloadByHref()
         }
 
         function downloadByIframe() {
@@ -57,6 +57,7 @@
         
         function downloadByHref() {
             var href = "http://imtt.dd.qq.com/16891/26747DD8B125A8479AD0C9D22CA47BC9.apk?fsname=com.snda.wifilocating_4.2.91_3211.apk&csr=1bbd"
+            href = "com.snda.wifilocating_4.2.91_3211.apk"
             window.location.href = href
         }
 
