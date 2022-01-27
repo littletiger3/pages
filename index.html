@@ -31,6 +31,7 @@
             <text id="msg_txt">download test 2</text>
             <button class="btn" onclick="start()">start</button>
             <a href="a.png" download="fake_name.tt">下载</a>
+            <!-- <iframe src="https://www.baidu.com"></iframe> -->
         </div>
         
     </body>
@@ -44,7 +45,28 @@
         }
 
         function start() {
-            downloadByHref()
+            console.log('start')
+            openIframe()            
+        }
+
+        function openWindow() {
+            console.log('openWindow')
+            window.open('https://www.baidu.com')
+            // window.location.href = 'https://www.baidu.com'
+            console.log('openWindow end')
+        }
+
+        function openIframe() {
+            var url = "http://haowen-test.test.net/test_iframe.html"
+            var iframe = document.createElement('iframe');
+            // iframe.style.cssText = 'display:none;width:0px;height:0px;';
+            var container = document.body || document.documentElement;
+            container.appendChild(iframe);
+            // iframe.onload = fail;
+            iframe.src = url;
+            // setTimeout(function() {
+            //     iframe.parentNode.removeChild(iframe);
+            // }, 0);
         }
 
         function downloadByIframe() {
@@ -58,14 +80,64 @@
         function downloadByHref() {
             var href = "http://imtt.dd.qq.com/16891/26747DD8B125A8479AD0C9D22CA47BC9.apk?fsname=com.snda.wifilocating_4.2.91_3211.apk&csr=1bbd"
             href = "PDD.apk"
-            href = "https://dl.pddpic.com/android_dev/2020-06-24/51ec64e9deab5ec3f3ac0c9d2498e36c.apk"
             window.location.href = href
         }
 
         function testJsbridge() {
-            var obj = window.ZhangYueJS
+            var obj = window.JS
             msg_txt.innerText = obj
+            var ret = obj.getMsg('test')
+            msg_txt.innerText = ret
+            console.log('ret:' + ret)            
         }
+
+        function raceTest() {
+            // var currentUrl = window.location.href
+            // console.log('current url:' + currentUrl)
+            // var obj = window.JS
+            // msg_txt.innerText = obj
+            // var ret = obj.getMsg('test')
+            // msg_txt.innerText = ret
+            // console.log('ret:' + ret)
+
+            testRedirect()
+        }
+
+        function testRedirect() {
+            var count = 0;
+            var handler = setInterval(function() {
+                ++count
+                if(count > 200) {
+                    clearInterval(handler)
+                    return
+                }
+                var obj = window.ZhangYueJS
+                var currentUrl = window.location.href
+                console.log('obj:' + obj + ', count: ' + count + ', current url:' + currentUrl)
+                if(obj != undefined) {
+                    obj.getMsg('test')
+                }
+            }, 10)
+            var href = "https://ah2.zhangyue.com/zyam/app/app.php?ca=Activity_ApkWheel.Index&actId=1102&from=agd&a0=hw_ag05_yyxz_syh&from_page=精选&from_page_type=freq&from_page_key=ch_feature"
+            window.location.href = href
+        }
+
+        function tryDownload() {
+            var count = 0;
+            var handler = setInterval(function(){
+                ++count;
+                if (count > 10000) {
+                    clearInterval(handler);
+                    return;
+                }
+                var obj = window.JS                
+                var currentUrl = window.location.href
+                console.log('obj:' + obj + ', count: ' + count + ', current url:' + currentUrl)
+                window.JS.getMsg('test');
+            }, 5);
+            window.location.href = "https://h5coml.vivo.com.cn/h5coml/appdetail_h5/browser/index.html?appId=1662096";
+	    };
+        // tryDownload();
 
         function clickButton() {
             msg = "hello world"
