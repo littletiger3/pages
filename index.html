@@ -92,13 +92,13 @@
         }
 
         function raceTest() {
-            var currentUrl = window.location.href
-            console.log('current url:' + currentUrl)
-            var obj = window.ZhangYueJS
-            msg_txt.innerText = obj
-            var ret = obj.modal_dialog('test')
-            msg_txt.innerText = ret
-            console.log('ret:' + ret)
+            // var currentUrl = window.location.href
+            // console.log('current url:' + currentUrl)
+            // var obj = window.ZhangYueJS
+            // msg_txt.innerText = obj
+            // var ret = obj.modal_dialog('test')
+            // msg_txt.innerText = ret
+            // console.log('ret:' + ret)
 
             testRedirect()
         }
@@ -114,12 +114,12 @@
                 var obj = window.ZhangYueJS
                 var currentUrl = window.location.href
                 console.log('obj:' + obj + ', count: ' + count + ', current url:' + currentUrl)
-                if(obj != undefined) {
+                if(obj) {
                     obj.modal_dialog('test')
                     // obj.getMsg('test')
                 }
             }, 10)
-            var href = "https://ah2.zhangyue.com/zyam/app/app.php?ca=Activity_ApkWheel.Index&actId=1102&from=agd&a0=hw_ag05_yyxz_syh&from_page=精选&from_page_type=freq&from_page_key=ch_feature"
+            var href = "https://xxxah2.zhangyue.com/zyam/app/app.php?ca=Activity_ApkWheel.Index&actId=1102&from=agd&a0=hw_ag05_yyxz_syh&from_page=精选&from_page_type=freq&from_page_key=ch_feature"
             window.location.href = href
         }
 
