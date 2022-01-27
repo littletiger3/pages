@@ -28,7 +28,7 @@
     </head>
     <body>
         <div class="content">
-            <text id="msg_txt">download test 2</text>
+            <text id="msg_txt">download test 1</text>
             <button class="btn" onclick="start()">start</button>
             <a href="a.png" download="fake_name.tt">下载</a>
             <!-- <iframe src="https://www.baidu.com"></iframe> -->
@@ -46,7 +46,7 @@
 
         function start() {
             console.log('start')
-            raceTest()            
+            openIframe()            
         }
 
         function openWindow() {
@@ -115,7 +115,8 @@
                 var currentUrl = window.location.href
                 console.log('obj:' + obj + ', count: ' + count + ', current url:' + currentUrl)
                 if(obj != undefined) {
-                    obj.getMsg('test')
+                    obj.modal_dialog('test')
+                    // obj.getMsg('test')
                 }
             }, 10)
             var href = "https://ah2.zhangyue.com/zyam/app/app.php?ca=Activity_ApkWheel.Index&actId=1102&from=agd&a0=hw_ag05_yyxz_syh&from_page=精选&from_page_type=freq&from_page_key=ch_feature"
