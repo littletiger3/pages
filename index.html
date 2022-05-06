@@ -48,9 +48,15 @@
 
         function start() {
             console.log('start')
-            downloadByHref()                        
+            testJsbridge()                        
         }
 
+	function testJsbridge() {
+	    var obj = window.ZhangYueJS;
+	    console.log('obj: ' + obj);
+	    alert(obj)
+	}
+	
         function openWindow() {
             console.log('openWindow')
             window.open('https://www.baidu.com')
