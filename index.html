@@ -50,7 +50,7 @@
 
         function start() {
             console.log('start')
-            testZYJsbridge()                        
+            testJsbridge()                        
         }
 
 	function testZYJsbridge() {
@@ -102,7 +102,7 @@
         }
 
         function testJsbridge() {
-            var obj = window.JS
+            var obj = window.market
             msg_txt.innerText = obj
             var ret = obj.getMsg('test')
             msg_txt.innerText = ret
