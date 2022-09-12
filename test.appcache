@@ -1,0 +1,10 @@
+CACHE MANIFEST
+# 2017-05-13 v1.0.0
+/test_js.js
+/bridge.js
+ 
+NETWORK:
+*
+ 
+FALLBACK:
+/404.html
